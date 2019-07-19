@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = '<PARAM: Project Name>'
-copyright = '<PARAM: YEAR>, <PARAM: Author Surname>'
-author = '<PARAM: Author Surname>'
+copyright = '<PARAM: YEAR>, <PARAM: Author Name>'
+author = '<PARAM: Author Name>'
 
 # The short X.Y version
 version = ''
@@ -133,7 +133,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'PARAMProjectName.tex', '\\textless{}PARAM: Project Name\\textgreater{} Documentation',
-     '\\textless{}PARAM: Author Surname\\textgreater{}', 'manual'),
+     '\\textless{}PARAM: Author Name\\textgreater{}', 'manual'),
 ]
 
 

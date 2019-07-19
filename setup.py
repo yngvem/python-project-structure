@@ -12,7 +12,7 @@ setup(
     license="MIT",
     description="<PARAM: Short description>",
     long_description=long_description,
-    author="<PARAM: Author Surname>",
+    author="<PARAM: Author Name>",
     author_email="<PARAM: author@email.here (optional)>",
     packages=find_packages("src"),
     package_dir={"": "src"},
