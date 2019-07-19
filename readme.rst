@@ -1,7 +1,7 @@
 Tutorial on writing scikit-learn compliant code
 ===============================================
 
-.. image:: https://img.shields.io/pypi/l/sklearn-compliant.svg
+.. image:: https://github.com/yngvem/sklearn-compliant/blob/master/LICENSE
     :target: https://github.com/yngvem/sklearn-compliant/blob/master/LICENSE
 
 This tutorial will teach you to manage a project, publish it on Pypi and
