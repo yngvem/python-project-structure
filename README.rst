@@ -1,12 +1,8 @@
-Tutorial on writing scikit-learn compliant code
-===============================================
+Tutorial on managing a project
+==============================
 
-.. image:: https://github.com/yngvem/sklearn-compliant/blob/master/LICENSE
-    :target: https://github.com/yngvem/sklearn-compliant/blob/master/LICENSE
-
-This tutorial will teach you to manage a project, publish it on PyPI and
-create a scikit-learn compliant estimator. The project structure part of
-this guide is majorly influenced by the following `tutorial
+This tutorial will teach you to manage a project, and publish it on PyPI. 
+This guide is majorly influenced by the following `tutorial
 <https://blog.ionelmc.ro/2014/05/25/python-packaging/>_`.
 
 Table of contents
@@ -42,7 +38,8 @@ be structured in the following way and we will explain why later.
    │   └── package_name
    │       └── __init__.py
    ├── tests
-   │   └── __init__.py
+   │   └── test_package_name
+   │       └── __init__.py
    ├── LICENSE.txt
    ├── MANIFEST.in
    ├── README.rst
@@ -115,7 +112,8 @@ the correct information for your package, then you are ok.
 
 There are two sections here that might be confusing, the ``classifiers``
 section and the ``install_requires`` section. The ``classifiers`` section is
-used by PyPI to make it easier for new users to find your package, you can find a full list of classifiers `here<https://pypi.org/classifiers/>_`. Likewise, the
+used by PyPI to make it easier for new users to find your package, you can find a full list of classifiers `here
+<https://pypi.org/classifiers/>_`. Likewise, the
 ``install_requires`` section specifies which Python packages that ``pip`` should
 install before installing the package you are developing. Both these fields are
 optional, so you can leave them blank until you have anything to fill in.
@@ -157,7 +155,8 @@ file.
 We will depend on ``scikit-learn`` if we are to create scikit-learn compliant
 code. Similarly, we need ``tox`` to run our test-suite. ``black`` and ``isort``
 are two really good code auto-formatters, which you can read more about on
-their GitHub pages (`black<https://github.com/psf/black>_` and `isort
+their GitHub pages (`black
+<https://github.com/psf/black>_` and `isort
 <https://github.com/timothycrosley/isort>_`). Finally, with the ``-e .`` line
 we install the current directory in editable mode.
 
@@ -184,7 +183,8 @@ The ``LICENSE.txt`` file
 
 Your project needs an open source lisence, otherwise, noone will be able to use
 your project. I like the MIT lisence, which is a very open lisence. To decide
-upon a lisence, i reccomend `choosealicense<https://choosealicense.com/>_` if
+upon a lisence, i reccomend `choosealicense
+<https://choosealicense.com/>_` if
 you are unsure as to which lisence to use.
 
 Running tests with tox
@@ -223,45 +223,235 @@ Note that ``tox`` by itself doesn't play nice with ``conda``. Thus, if you
 have an Anaconda or Miniconda installation of Python, then you should manually
 install ``tox-conda`` through ``pip``.
     
+Keeping the package source in the src folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You might have noticed that the source files are kept inside a separate ``src``
+folder. The reason is that we should be certain that the code we are testing
+is the installable code. To accomplish this, it is neccessary to structure the
+code this way. For more information on this topic, see `this page
+<https://hynek.me/articles/testing-packaging/#src>_`.
+
+Keeping the tests in a tests folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For the same reason as we keep the package source in the src folder, we keep the
+unit tests in the tests folder.
+
+Documenting the code with sphinx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you publish code, you should also publish documentation to that code, and
+creating the documentation is very simple if you have good docstrings and use
+`sphinx
+<http://www.sphinx-doc.org/en/master/>_`. To use sphinx, navigate to the docs
+folder in the terminal window and type sphinx-quickstart.
+
+We will not discuss sphinx in detail here, the only extra note I want to add
+is to use the `sphinx.ext.napoleon` extension so your docstrings can be in the
+`numpydoc
+<https://github.com/numpy/numpydoc>_` style.
+
+Providing example code
+^^^^^^^^^^^^^^^^^^^^^^
+
+Any library should come with at least a minimal example script so prospective
+users can see how the package was intended to be used. Keep these example
+scripts in the examples folder.
+
+
+Automatic documentation
+-----------------------
+
+The second most important part of a project, after the source code itself, is
+the documentation. Luckily, writing Python documentation is relatively painless
+so long as you write your docstrings following the Sphinx guidelines. I will
+assume that you have a working sphinx environment and simply want to host the
+documentation somewhere.
+
+If you are in this category, then you are in luck since you can host your
+documentation for free on `Read the Docs
+<https://readthedocs.org/>_`. To do this, you need to connect your GitHub
+user to `<https://readthedocs.org>` (note the org top level domain (TLD), not
+an io TLD). Once you have connected your GitHub to Read the Docs, you need
+to add the ``.readthedocs.yml`` file to your repository. This file should have
+the following lines in it.
+
+.. code-block:: yaml
+
+   python:
+      setup_py_install: true
+
+After adding the ``.readthedocs.yml`` file to the repository, it should have
+the following layout.
+
+.. code-block:: raw
+   
+   project_name
+   ├── docs
+   │   ├── make.bat
+   │   ├── Makefile
+   │   └── source
+   │       ├── conf.py
+   │       └── index.rst
+   ├── examples
+   │   └── example.py
+   ├── src
+   │   └── package_name
+   │       └── __init__.py
+   ├── tests
+   │   └── test_package_name
+   │       └── __init__.py
+   ├── .readthedocs.yml  <- This file is new
+   ├── LICENSE.txt
+   ├── MANIFEST.in
+   ├── README.rst
+   ├── requirements.txt
+   ├── setup.cfg
+   ├── setup.py
+   └── tox.ini
+
+Once it does, you can import the project to Read the Docs, by pressing the
+"Import a Project" button and choosing the correct GitHub repository.
+
+You might want to have a badge that shows whether your documentation builds
+correctly on your GitHub page, to do this, press the "i" button on the right
+of the green "docs passing" badge (or red "docs failing" if your documentation
+isn't building correctly). Copy the rst code to somewhere near the beginning of your readme file. The code should be on the following form:
+
+.. code-block:: raw
+
+   .. image:: https://readthedocs.org/projects/<repo_name>/badge/?version=latest
+      :target: https://<repo_name>.readthedocs.io/en/latest/?badge=latest
+      :alt: Documentation Status
+
+Using continuous integration
+----------------------------
+
+Another useful tool when developing code is a continuous integration tool.
+Such tools will automatically run the unit tests on activity to the GitHub
+repository. Luckily, there exists a very good tool called `*Travis-CI*
+<https://travis-ci.org/>_`, which is free for all open source projects.
+
+To use Travis-CI, you must link your GitHub user to Travis CI on their webpage.
+After this, you simply choose which repository to activate Travis for and you
+are set to go. When you have activated Travis for a specific repo, you need
+to add a ``.travis.yml`` file to the project root, giving you the following
+file structure
+
+.. code-block:: raw
+   
+   project_name
+   ├── docs
+   │   ├── make.bat
+   │   ├── Makefile
+   │   └── source
+   │       ├── conf.py
+   │       └── index.rst
+   ├── examples
+   │   └── example.py
+   ├── src
+   │   └── package_name
+   │       └── __init__.py
+   ├── tests
+   │   └── test_package_name
+   │       └── __init__.py
+   ├── .readthedocs.yml
+   ├── .travis.yml  <- This file is new
+   ├── LICENSE.txt
+   ├── MANIFEST.in
+   ├── README.rst
+   ├── requirements.txt
+   ├── setup.cfg
+   ├── setup.py
+   └── tox.ini
+
+The contents of the ``.travis.yml`` file should be the following
+
+.. code-block:: yaml
+
+   sudo: false
+   language: python
+   python:
+     - "3.7"
+   # command to install dependencies
+   install:
+   before_script:
+     - pip install tox-travis
+   # command to run tests
+   script: tox
+
+This file will ensure that tox is run on Travis-CI any time someone pushes
+a change to the GitHub repository. You might also want to add a badge to
+your readme file. To do this, navigate to the Travis-CI dashboard, press
+the link to the repository that you want to add the badge for, press the
+badge showing ``build passing`` (ideally, it will show ``build failing``
+if your tests are failing) and finally, choose rst from the bottom dropdown
+menu. Once you have done this, copy the text in the text-box and paste it
+somewhere around the top of yor ``README.rst`` file. The rst code that you
+copy should look something like this
+
+.. code-block:: rst
+
+   .. image:: https://travis-ci.org/<github_username>/<repo_name>.svg?branch=<branch_name>
+      :target: https://travis-ci.org/<github_username>/<repo_name>
+
+
+Automatic coverage reporting
+----------------------------
+
+Another useful tool in a programmer's arsenal is automatic code coverage
+reporting. Have you ever seen a repository where they have a badge that
+shows how high their code-coverage is with a small badge? They accomplish
+this using one of many automatic code-coverage reporters. Personally,
+I like to use `*Coveralls*
+<https://coveralls.io/>_`, which has a relatively easy-to-use interface
+and integrates well with Travis-CI.
+
+To start using Coveralls, you must first register and link your GitHub account
+with Coveralls. Once you have done that, you need to add your repository to
+Coveralls. You can do this, by pressing the plus button on the left-hand side of
+the Coveralls dashboard and enable whichever repository you want. Once you have
+done this, you must update the ``.travis.yml`` file so Coveralls are ran after
+the test suite. The new ``.travis.yml`` file should look like this:
+
+.. code-block:: yaml
+
+   sudo: false
+   language: python
+   python:
+     - "3.7"
+   # command to install dependencies
+   install:
+   before_script:
+     - pip install tox-travis
+     - pip install coveralls
+   # command to run tests
+   script: tox
+   after_success: coveralls
+
+Once you have made this update, then Coveralls will run after travis. Next, you
+want to add the coverage badge to your ``README.rst`` file. In the Coveralls
+project dashboard, you should see a badge that displays your code coverage,
+press the embed button on the top right corner near the badge and copy the
+code for rst into your ``README.rst`` file. The code you copy should have
+the following format
+
+.. code-block:: rst
+
+   .. image:: https://coveralls.io/repos/github/<github_username>/<repo_name>/badge.svg?branch=<branch_name>
+      :target: https://coveralls.io/github/<github_username>/<repo_name>?branch=<branch_name>
+
+Uploading to PyPI
+-----------------
+It is finally time to upload our code to PyPI, making it easily installable for
+others. Uploading code to PyPI is very simple. First, create an account on PyPI.
+Then, you need to install two packages; twine and wheel. To do this, write 
+``pip install twine wheel`` in the terminal window. Then, navigate to the
+project root and type ``python setup.py sdist bdist_wheel``, this will prepare
+your package for uploading to PyPI. Then, write ``twine upload dist/*`` to
+upload your project.
 
 Writing scikit-learn compliant code
 -----------------------------------
 Abbreviated version of the developer guide
-
-Using continuous integration
-----------------------------
-Travis CI
-
-Automatic coverage reporting
-----------------------------
-Coverall
-
-Uploading to Pypi
------------------
-
-Automatic documentation
------------------------
-Readthedocs
-
-
-
-
-Writing scikit-learn compliant code
------------------------------------
-Abbreviated version of the developer guide
-
-Using continuous integration
-----------------------------
-Travis CI
-
-Automatic coverage reporting
-----------------------------
-Coverall
-
-Uploading to Pypi
------------------
-
-Automatic documentation
------------------------
-Readthedocs
-
