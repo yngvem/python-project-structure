@@ -54,7 +54,9 @@ be structured in the following way and we will explain why later.
 Now, this is a lot of files, let us look at these to understand what the
 different components are and why they are necessary in a Python project.
 
-**The ``setup`` files**  
+The ``setup`` files
+^^^^^^^^^^^^^^^^^^^
+
 The ``setup.py``, ``setup.cfg`` and ``MANIFEST.in`` files are used to
 specify how a package should be installed. You might think that you don't
 want to create an installable package, so let's skip this. DON'T! Even for
@@ -134,7 +136,9 @@ a general project, I reccomend having a file with the following layout.
    graft docs
    graft src
 
-**The ``requirements.txt`` file**  
+The ``requirements.txt`` file 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The ``requirements.txt`` file is similar to the ``install_requires`` field in
 the ``setup.cfg`` file we described above. However, the aim of the
 ``requirements.txt`` file is not to specify the dependencies of your package,
@@ -156,6 +160,91 @@ are two really good code auto-formatters, which you can read more about on
 their GitHub pages (`black<https://github.com/psf/black>_` and `isort
 <https://github.com/timothycrosley/isort>_`). Finally, with the ``-e .`` line
 we install the current directory in editable mode.
+
+The ``README.rst`` file
+^^^^^^^^^^^^^^^^^^^^^^^^
+The readme file contains the contens that are showed by default on online
+source control providers such as GitHub, GitLab and BitBucket. Normally, this
+is formatted as a Markdown file. However, I reccomend that you use
+reStructuredText (rst) instead, since that is the file-format used by Sphinx,
+the most commonly used auto-documentation tool for Python.
+
+Additionally, PyPI will only host rst formatted help strings, not Markdown
+formatted ones. Thus, if you wish to make your library public for ``pip``
+installation in the future, then you should use rst to avoid writing the
+same text twice.
+
+The rst documentation is available `here
+<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>_`, and a good
+summary is available `here
+<https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>_`.
+
+The ``LICENSE.txt`` file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your project needs an open source lisence, otherwise, noone will be able to use
+your project. I like the MIT lisence, which is a very open lisence. To decide
+upon a lisence, i reccomend `choosealicense<https://choosealicense.com/>_` if
+you are unsure as to which lisence to use.
+
+Running tests with tox
+^^^^^^^^^^^^^^^^^^^^^^
+
+You should unit test your code. Otherwise there will be bugs, no matter how
+simple the codebase is. The tool I like to use for unit testing is called
+tox, and works by creating new virtual environments for each python version
+you want to test the codebase with. It then installs all libraries necessary
+to run the test suite before running it. These specifications are given in the
+``tox.ini`` file, which can have the following structure
+
+.. code::
+
+   [tox]
+   envlist = 
+      py35
+      py36
+
+   [testenv]
+   deps =
+      pytest
+      pytest-cov
+      pytest-randomly
+   commands =
+       pytest --cov=group_lasso --randomly-seed=1
+
+The ``envlist`` field specifies which python versions to run the code with,
+the ``deps`` field specifies the test dependencies (which might be different
+from the devloper dependencies) and ``commands`` specifies which commands to
+be ran to run the test suite.
+
+NOTE: tox with conda
+""""""""""""""""""""
+Note that ``tox`` by itself doesn't play nice with ``conda``. Thus, if you
+have an Anaconda or Miniconda installation of Python, then you should manually
+install ``tox-conda`` through ``pip``.
+    
+
+Writing scikit-learn compliant code
+-----------------------------------
+Abbreviated version of the developer guide
+
+Using continuous integration
+----------------------------
+Travis CI
+
+Automatic coverage reporting
+----------------------------
+Coverall
+
+Uploading to Pypi
+-----------------
+
+Automatic documentation
+-----------------------
+Readthedocs
+
+
+
 
 Writing scikit-learn compliant code
 -----------------------------------
