@@ -3,7 +3,7 @@ Tutorial on managing a project
 
 This tutorial will teach you to manage a project, and publish it on PyPI. 
 This guide is majorly influenced by the following `tutorial
-<https://blog.ionelmc.ro/2014/05/25/python-packaging/>_`.
+<https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_.
 
 Table of contents
 -----------------
@@ -113,7 +113,7 @@ the correct information for your package, then you are ok.
 There are two sections here that might be confusing, the ``classifiers``
 section and the ``install_requires`` section. The ``classifiers`` section is
 used by PyPI to make it easier for new users to find your package, you can find a full list of classifiers `here
-<https://pypi.org/classifiers/>_`. Likewise, the
+<https://pypi.org/classifiers/>`_. Likewise, the
 ``install_requires`` section specifies which Python packages that ``pip`` should
 install before installing the package you are developing. Both these fields are
 optional, so you can leave them blank until you have anything to fill in.
@@ -156,8 +156,8 @@ We will depend on ``scikit-learn`` if we are to create scikit-learn compliant
 code. Similarly, we need ``tox`` to run our test-suite. ``black`` and ``isort``
 are two really good code auto-formatters, which you can read more about on
 their GitHub pages (`black
-<https://github.com/psf/black>_` and `isort
-<https://github.com/timothycrosley/isort>_`). Finally, with the ``-e .`` line
+<https://github.com/psf/black>`_ and `isort
+<https://github.com/timothycrosley/isort>`_). Finally, with the ``-e .`` line
 we install the current directory in editable mode.
 
 The ``README.rst`` file
@@ -174,9 +174,9 @@ installation in the future, then you should use rst to avoid writing the
 same text twice.
 
 The rst documentation is available `here
-<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>_`, and a good
+<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_, and a good
 summary is available `here
-<https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>_`.
+<https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_.
 
 The ``LICENSE.txt`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,7 +184,7 @@ The ``LICENSE.txt`` file
 Your project needs an open source lisence, otherwise, noone will be able to use
 your project. I like the MIT lisence, which is a very open lisence. To decide
 upon a lisence, i reccomend `choosealicense
-<https://choosealicense.com/>_` if
+<https://choosealicense.com/>`_ if
 you are unsure as to which lisence to use.
 
 Running tests with tox
@@ -230,7 +230,7 @@ You might have noticed that the source files are kept inside a separate ``src``
 folder. The reason is that we should be certain that the code we are testing
 is the installable code. To accomplish this, it is neccessary to structure the
 code this way. For more information on this topic, see `this page
-<https://hynek.me/articles/testing-packaging/#src>_`.
+<https://hynek.me/articles/testing-packaging/#src>`_.
 
 Keeping the tests in a tests folder
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -244,13 +244,13 @@ Documenting the code with sphinx
 When you publish code, you should also publish documentation to that code, and
 creating the documentation is very simple if you have good docstrings and use
 `sphinx
-<http://www.sphinx-doc.org/en/master/>_`. To use sphinx, navigate to the docs
+<http://www.sphinx-doc.org/en/master/>`_. To use sphinx, navigate to the docs
 folder in the terminal window and type sphinx-quickstart.
 
 We will not discuss sphinx in detail here, the only extra note I want to add
 is to use the `sphinx.ext.napoleon` extension so your docstrings can be in the
 `numpydoc
-<https://github.com/numpy/numpydoc>_` style.
+<https://github.com/numpy/numpydoc>`_ style.
 
 Providing example code
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ documentation somewhere.
 
 If you are in this category, then you are in luck since you can host your
 documentation for free on `Read the Docs
-<https://readthedocs.org/>_`. To do this, you need to connect your GitHub
+<https://readthedocs.org/>`_. To do this, you need to connect your GitHub
 user to `<https://readthedocs.org>` (note the org top level domain (TLD), not
 an io TLD). Once you have connected your GitHub to Read the Docs, you need
 to add the ``.readthedocs.yml`` file to your repository. This file should have
@@ -331,7 +331,7 @@ Using continuous integration
 Another useful tool when developing code is a continuous integration tool.
 Such tools will automatically run the unit tests on activity to the GitHub
 repository. Luckily, there exists a very good tool called `*Travis-CI*
-<https://travis-ci.org/>_`, which is free for all open source projects.
+<https://travis-ci.org/>`_, which is free for all open source projects.
 
 To use Travis-CI, you must link your GitHub user to Travis CI on their webpage.
 After this, you simply choose which repository to activate Travis for and you
@@ -405,7 +405,7 @@ reporting. Have you ever seen a repository where they have a badge that
 shows how high their code-coverage is with a small badge? They accomplish
 this using one of many automatic code-coverage reporters. Personally,
 I like to use `*Coveralls*
-<https://coveralls.io/>_`, which has a relatively easy-to-use interface
+<https://coveralls.io/>`_, which has a relatively easy-to-use interface
 and integrates well with Travis-CI.
 
 To start using Coveralls, you must first register and link your GitHub account
