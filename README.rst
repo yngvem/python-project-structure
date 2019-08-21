@@ -46,7 +46,6 @@ be structured in the following way and we will explain why later.
    ├── LICENSE.txt
    ├── MANIFEST.in
    ├── README.rst
-   ├── requirements-dev.txt
    ├── requirements.txt
    ├── setup.cfg
    ├── setup.py
@@ -135,7 +134,28 @@ a general project, I reccomend having a file with the following layout.
    graft docs
    graft src
 
+**The ``requirements.txt`` file**  
+The ``requirements.txt`` file is similar to the ``install_requires`` field in
+the ``setup.cfg`` file we described above. However, the aim of the
+``requirements.txt`` file is not to specify the dependencies of your package,
+but the packages needed to work on developing your package. Each dependency
+should be on a separate line. Here is an example of a ``requirements.txt``
+file.
 
+.. code::raw
+
+   scikit-learn
+   tox
+   black
+   isort
+   -e .
+
+We will depend on ``scikit-learn`` if we are to create scikit-learn compliant
+code. Similarly, we need ``tox`` to run our test-suite. ``black`` and ``isort``
+are two really good code auto-formatters, which you can read more about on
+their GitHub pages (`black<https://github.com/psf/black>_` and `isort
+<https://github.com/timothycrosley/isort>_`). Finally, with the ``-e .`` line
+we install the current directory in editable mode.
 
 Writing scikit-learn compliant code
 -----------------------------------
