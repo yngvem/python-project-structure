@@ -130,7 +130,7 @@ a general project, I reccomend having a file with the following layout.
    include LICENSE
    include README.md
 
-   graft test
+   graft tests
    graft examples
    graft docs
    graft src
