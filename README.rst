@@ -27,7 +27,7 @@ effort restructuring the code once you want to publish it.
 Let us start with the folder layout. Your project directory should
 be structured in the following way and we will explain why later.
 
-.. code::raw
+.. code-block:: raw
    
    project_name
    ├── docs
@@ -64,7 +64,7 @@ small projects, you should include these because of something called
 editable installs (more on that later). The most basic setup.py file should
 look like this
 
-.. code::python
+.. code-block:: python
 
    from setuptools import setup
 
@@ -78,7 +78,7 @@ we want to keep as much of the setup configuration as possible inside the
 package without running a Python file first! The ``setup.cfg`` file should
 look like this
 
-.. code::ini
+.. code-block:: ini
 
    [metadata]      
    name = <package-name>
@@ -124,7 +124,7 @@ Lastly, the ``MANIFEST.in`` file. This file is used to instruct setupttools
 on which files it should include when it creates an installable project. For
 a general project, I reccomend having a file with the following layout.
 
-.. code::raw
+.. code-block:: raw
 
    include setup.py
    include MANIFEST.in
@@ -146,7 +146,7 @@ but the packages needed to work on developing your package. Each dependency
 should be on a separate line. Here is an example of a ``requirements.txt``
 file.
 
-.. code::raw
+.. code-block:: raw
 
    scikit-learn
    tox
@@ -197,7 +197,7 @@ you want to test the codebase with. It then installs all libraries necessary
 to run the test suite before running it. These specifications are given in the
 ``tox.ini`` file, which can have the following structure
 
-.. code::
+.. code-block:: ini
 
    [tox]
    envlist = 
