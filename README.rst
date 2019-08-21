@@ -8,7 +8,7 @@ This guide is majorly influenced by the following `tutorial
 Table of contents
 -----------------
 
-.. contents::
+.. contents:: depth=3
 
 
 Structuring a repository
