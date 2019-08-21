@@ -1,8 +1,0 @@
-include setup.py
-include MANIFEST.in
-include LICENSE
-include readme.md
-
-recursive-include test
-recursive-include src
-recursive-include examples
