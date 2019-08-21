@@ -452,6 +452,3 @@ project root and type ``python setup.py sdist bdist_wheel``, this will prepare
 your package for uploading to PyPI. Then, write ``twine upload dist/*`` to
 upload your project.
 
-Writing scikit-learn compliant code
------------------------------------
-Abbreviated version of the developer guide
