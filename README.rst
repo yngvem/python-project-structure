@@ -306,7 +306,7 @@ documentation somewhere.
 If you are in this category, then you are in luck since you can host your
 documentation for free on `Read the Docs
 <https://readthedocs.org/>`_. To do this, you need to connect your GitHub
-user to `<https://readthedocs.org>` (note the org top level domain (TLD), not
+user to `https://readthedocs.org` (note the org top level domain (TLD), not
 an io TLD). Once you have connected your GitHub to Read the Docs, you need
 to add the ``.readthedocs.yml`` file to your repository. This file should have
 the following lines in it.
