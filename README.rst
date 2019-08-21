@@ -40,6 +40,7 @@ be structured in the following way and we will explain why later.
    ├── tests
    │   └── test_package_name
    │       └── __init__.py
+   ├── .gitignore
    ├── LICENSE.txt
    ├── MANIFEST.in
    ├── README.rst
@@ -178,6 +179,15 @@ The rst documentation is available `here
 summary is available `here
 <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_.
 
+
+The ``.gitignore`` file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``.gitignore`` file contains instructions to Git, informing it of which
+files it should not track. Examples of such files are the ``__pycache__`` files
+and IDE configuration files. You can either copy the ``.gitignore`` file in this repository, which should work for a large array of development environments, orcreate your own ``.gitignore`` using `gitignore.io
+<http://gitignore.io/>`_.
+
 The ``LICENSE.txt`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -259,6 +269,30 @@ Any library should come with at least a minimal example script so prospective
 users can see how the package was intended to be used. Keep these example
 scripts in the examples folder.
 
+Editable installs
+-----------------
+One immensely useful facet of the python ecosystem is editable installs. Often,
+when new Python programmers create a project, they do not install the project
+with pip. Rather, whenever they need to use the code from one project within
+another, they end up manually modifying the system path environment variable.
+If this sounds familiar, then you should stop that immediately. There is a
+cleaner, easier and less error-prone way to accomplish the same. This way is
+called editable installs.
+
+Normally when we install a Python package, it is copied into the 
+``site-packages`` directory. This is not ideal if the code we installed
+is code that we are actively developing. In this case, we want to create a
+symbolic link between the ``site-packages`` directory and the project
+directory, and a way to accomplish this is through editable installs.
+
+To installl a project in editable mode, simply navigate to the project root
+directory and type ``pip install -e .`` in the terminal window. A benefit of
+doing it this way, is that we have better cross-platform support. Windows and
+UNIX based systems have vastly different ways of handling the path variable, so
+your old ``sys.path.append`` hack might not work as intended on a Windows
+machine. Additionally, the ``sys.path.append`` method is highly dependent on the
+file-structure on your computer, whereas editable installs are not.
+
 
 Automatic documentation
 -----------------------
@@ -302,6 +336,7 @@ the following layout.
    ├── tests
    │   └── test_package_name
    │       └── __init__.py
+   ├── .gitignore
    ├── .readthedocs.yml  <- This file is new
    ├── LICENSE.txt
    ├── MANIFEST.in
@@ -356,6 +391,7 @@ file structure
    ├── tests
    │   └── test_package_name
    │       └── __init__.py
+   ├── .gitignore
    ├── .readthedocs.yml
    ├── .travis.yml  <- This file is new
    ├── LICENSE.txt
