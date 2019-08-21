@@ -185,15 +185,17 @@ The ``.gitignore`` file
 
 The ``.gitignore`` file contains instructions to Git, informing it of which
 files it should not track. Examples of such files are the ``__pycache__`` files
-and IDE configuration files. You can either copy the ``.gitignore`` file in this repository, which should work for a large array of development environments, orcreate your own ``.gitignore`` using `gitignore.io
+and IDE configuration files. You can either copy the ``.gitignore`` file in this
+repository, which should work for a large array of development environments, or
+create your own ``.gitignore`` using `gitignore.io
 <http://gitignore.io/>`_.
 
 The ``LICENSE.txt`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your project needs an open source lisence, otherwise, noone will be able to use
-your project. I like the MIT lisence, which is a very open lisence. To decide
-upon a lisence, i reccomend `choosealicense
+your project. I like the MIT lisence, which is a very open lisence. To decide a 
+lisence, i reccomend `choosealicense
 <https://choosealicense.com/>`_ if
 you are unsure as to which lisence to use.
 
