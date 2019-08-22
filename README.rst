@@ -106,9 +106,10 @@ look like this
    [options.packages.find]
    where=src
 
-This file is formated using the ``ini`` standard, which you can read
-more about with a quick search on DuckDuckGo. However, if you you
-simply follow this layout, replacing the elements wrapped in ``<>`` with
+This file is formated according to `this
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files>`_
+specification. However, if you you
+simply follow the layout above, replacing the elements wrapped in ``<>`` with
 the correct information for your package, then you are ok.
 
 There are two sections here that might be confusing, the ``classifiers``
