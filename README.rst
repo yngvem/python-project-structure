@@ -5,6 +5,11 @@ This tutorial will teach you to manage a project, and publish it on PyPI.
 This guide is majorly influenced by the following `tutorial
 <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_.
 
+Also, this tutorial will always be a work in progress (or at least so long
+as best practice can change), so the tutorial might change at any time.
+However, you can always read old versions of the tutorial,  since it is
+covered by source control.
+
 Table of contents
 -----------------
 
