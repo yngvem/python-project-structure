@@ -38,8 +38,7 @@ be structured in the following way and we will explain why later.
    │   └── package_name
    │       └── __init__.py
    ├── tests
-   │   └── test_package_name
-   │       └── __init__.py
+   │   └── __init__.py
    ├── .gitignore
    ├── LICENSE.txt
    ├── MANIFEST.in
