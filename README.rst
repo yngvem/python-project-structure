@@ -228,7 +228,7 @@ to run the test suite before running it. These specifications are given in the
       pytest-cov
       pytest-randomly
    commands =
-       pytest --cov=group_lasso --randomly-seed=1
+       pytest --cov=<package_name> --randomly-seed=1
 
 The ``envlist`` field specifies which python versions to run the code with,
 the ``deps`` field specifies the test dependencies (which might be different
