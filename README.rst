@@ -86,7 +86,7 @@ look like this
    [metadata]      
    name = <package-name>
    version = <version number: 0.0.0>
-   license = <lisence name, e.g. MIT>    
+   license = <license name, e.g. MIT>    
    description = <A short description>
    long_description = file: README.rst
    author = <Author name>
@@ -199,11 +199,11 @@ create your own ``.gitignore`` using `gitignore.io
 The ``LICENSE.txt`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Your project needs an open source lisence, otherwise, noone will be able to use
-your project. I like the MIT lisence, which is a very open lisence. To decide a 
-lisence, i reccomend `choosealicense
+Your project needs an open source license, otherwise, noone will be able to use
+your project. I like the MIT license, which is a very open license. To decide a 
+license, i reccomend `choosealicense
 <https://choosealicense.com/>`_ if
-you are unsure as to which lisence to use.
+you are unsure as to which license to use.
 
 Running tests with tox
 ^^^^^^^^^^^^^^^^^^^^^^
