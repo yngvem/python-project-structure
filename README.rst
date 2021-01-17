@@ -70,8 +70,9 @@ look like this
 .. code-block:: python
 
    from setuptools import setup
-
-   setup()
+   
+   if __name__ == "__main__":
+      setup()
 
 Some projects might include more code, especially if you are using Cython
 or creating C-extensions to Python. However, if you are not, then this style
