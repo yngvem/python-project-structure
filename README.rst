@@ -110,6 +110,11 @@ look like this
 
    [options.packages.find]
    where=src
+   
+   # Other options that were dicts in `setup.py` become their own subsections, e.g.:
+   [options.entry_points]
+   console_scripts =
+      <key> = <value>
 
 This file is formated according to `this
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files>`_
