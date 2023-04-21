@@ -1,6 +1,9 @@
 Tutorial on managing a project
 ==============================
 
+**UPDATE: You should probably follow the official `Python Packaging user
+guide <https://packaging.python.org/en/latest/>`_ instead of this guide.
+
 This tutorial will teach you to manage a project, and publish it on PyPI. 
 This guide is majorly influenced by the following `tutorial
 <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_.
