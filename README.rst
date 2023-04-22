@@ -114,9 +114,9 @@ look like this
    [options.packages.find]
    where=src
 
-This file is formated according to `this
+This file is formatted according to `this
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files>`_
-specification. However, if you you
+specification. However, if you
 simply follow the layout above, replacing the elements wrapped in ``<>`` with
 the correct information for your package, then you are ok.
 
@@ -130,7 +130,7 @@ optional, so you can leave them blank until you have anything to fill in.
 
 Lastly, the ``MANIFEST.in`` file. This file is used to instruct setupttools
 on which files it should include when it creates an installable project. For
-a general project, I reccomend having a file with the following layout.
+a general project, I recommend having a file with the following layout.
 
 .. code-block:: raw
 
@@ -172,10 +172,10 @@ we install the current directory in editable mode.
 
 The ``README.rst`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
-The readme file contains the contens that are showed by default on online
+The readme file contains the contents that are showed by default on online
 source control providers such as GitHub, GitLab and BitBucket. Normally, this
-is formatted as a Markdown file. However, I reccomend that you use
-reStructuredText (rst) instead, since that is the file-format used by Sphinx,
+is formatted as a Markdown file. However, I recommend that you use
+reStructuredText (rst) instead, since that is the file format used by Sphinx,
 the most commonly used auto-documentation tool for Python.
 
 Additionally, PyPI will only host rst formatted help strings, not Markdown
@@ -202,9 +202,9 @@ create your own ``.gitignore`` using `gitignore.io
 The ``LICENSE.txt`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Your project needs an open source license, otherwise, noone will be able to use
+Your project needs an open source license, otherwise, no one will be able to use
 your project. I like the MIT license, which is a very open license. To decide a 
-license, i reccomend `choosealicense
+license, I recommend `choosealicense
 <https://choosealicense.com/>`_ if
 you are unsure as to which license to use.
 
