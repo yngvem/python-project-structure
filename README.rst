@@ -1,8 +1,10 @@
-Tutorial on managing a project
-==============================
+OLD AND OUTDATED Tutorial on managing a project
+===============================================
 
 **UPDATE:** You should probably follow the official `Python Packaging user
 guide <https://packaging.python.org/en/latest/>`_ instead of this guide.
+
+**UPDATE 2:** You should use a tool like [PDM](https://pdm-project.org/en/latest/) or [uv](https://docs.astral.sh/uv/guides/install-python/) to manage your projects.
 
 This tutorial will teach you to manage a project, and publish it on PyPI. 
 This guide is majorly influenced by the following `tutorial
